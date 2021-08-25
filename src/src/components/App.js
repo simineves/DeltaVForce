@@ -1,7 +1,16 @@
+// react imports
+import { Route, Switch } from "react-router-dom"
+
+// page imports
+import HomePage from "../pages/HomePage"
+
 function App() {
   return (
-    <h1>DeltaVForce</h1>
-  );
+    <Switch>
+      <Route path="/" exact component={HomePage} />
+      {/* <Route path="*" component={NotFoundPage} /> */}
+    </Switch>
+  )
 }
 
-export default App;
+export default App
