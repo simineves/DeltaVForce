@@ -1,0 +1,26 @@
+.navbar-container {
+  background-color: orangered;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-brand {
+  font-size: 24px;
+  letter-spacing: 2px;
+}
+
+.nav-item {
+  padding: 14px 30px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-link {
+  text-transform: uppercase;
+}

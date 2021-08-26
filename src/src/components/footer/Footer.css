@@ -1,0 +1,20 @@
+.footer-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.footer-title {
+  font-size: 32px;
+  font-weight: 300;
+  padding: 10px 0;
+}
+
+.footer-items {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  height: 500px;
+}
