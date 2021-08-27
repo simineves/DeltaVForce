@@ -1,46 +1,37 @@
-import React from 'react'
-import Phaser from 'phaser'
-import { IonPhaser } from '@ion-phaser/react'
-import background from './assets/Background.jpeg'
-
-const Game = {
-  type: Phaser.AUTO,
-  width: "100%",
-  height: "100%",
-  physics: {
-    default: 'arcade',
-    arcade: {
-        gravity: { y: 300 },
-        debug: false
-    }
-  },
-  scene: {
-    preload: function() {
-      this.load.image('background', background)
-    },
-    create: function() {
-      this.add.image(600, 500, 'background');
-      this.helloWorld = this.add.text(
-        this.cameras.main.centerX, 
-        this.cameras.main.centerY, 
-        "DeltaVForce", { 
-          font: "30px Arial", 
-          fill: "#ffffff",
-          align: "center"
-        }
-      );
-      this.helloWorld.setOrigin(0.5);
-    },
-    update: function() {
-      this.helloWorld.rotation += 0.5;
-    }
-  }
-}
+import { useState, useEffect, useRef } from "react"
+import { IonPhaser } from "@ion-phaser/react"
+import { config } from "../phaser/config"
+import "./index.css"
 
 const GamePage = () => {
-  return (
-    <IonPhaser game={Game} />
+  const gameRef = useRef(null)
+  const [game, setGame] = useState()
+  const [init, setInit] = useState(false)
+
+  useEffect(() => {
+    if (init) {
+      setGame(Object.assign({}, config))
+    }
+  }, [init])
+
+  const handleGameStart = () => {
+    setInit(true)
+  }
+
+  const handleGameEnd = () => {
+    gameRef.current?.destroy()
+    setInit(false)
+    setGame(undefined)
+  }
+
+  return init ? (
+    <>
+      <IonPhaser ref={gameRef} game={game} initialize={init} />
+      <button onClick={handleGameEnd}>End</button>
+    </>
+  ) : (
+    <button onClick={handleGameStart}>Start</button>
   )
 }
 
-export default GamePage;
+export default GamePage
