@@ -7,6 +7,7 @@ class MainScene extends Phaser.Scene {
       frameHeight: 32
     })
   }
+
   create() {
     this.player = this.physics.add.sprite(500, 500, "player")
     this.player.setCollideWorldBounds(true)
@@ -39,6 +40,7 @@ class MainScene extends Phaser.Scene {
       repeat: -1
     })
   }
+
   update() {
     this.cursors = this.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
