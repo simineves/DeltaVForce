@@ -2,7 +2,10 @@ import Phaser from "phaser"
 
 class MainScene extends Phaser.Scene {
   preload() {
-    this.load.image("tiles", "assets/hospitalTiles.png")
+    this.load.spritesheet("tiles", "assets/hospitalTiles.png", {
+      frameWidth: 32,
+      frameHeight: 32
+    })
     this.load.tilemapTiledJSON("hospitalMap", "assets/hospital.json")
     this.load.spritesheet("player", "assets/player.png", {
       frameWidth: 16,
@@ -11,7 +14,7 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
-    
+
     // const hospitalMap = this.make.tilemap({key: "hospitalMap"})
     // const hospitalTileset = this.hospitalMap.addTilesetImage("hospitalTiles", "tiles")
     // const belowLayer = this.hospitalMap.createStaticLayer("Below", hospitalTileset, 0, 0)
@@ -24,9 +27,10 @@ class MainScene extends Phaser.Scene {
     // this.hospitalMap.createStaticLayer("Above", this.hospitalTileset, 0, 0)
     // this.hospitalMap.createStaticLayer("Hospital", this.hospitalTileset, 0, 0)
 
-    this.map = this.add.tilemap("hospitalMap")
-    this.tileset = this.map.addTilesetImage("tiles")
-    this.layer = this.map.createStaticLayer(0, this.tileset, -50, 30)
+    this.map = this.make.tilemap({key: "hospitalMap"})
+    this.tileset = this.map.addTilesetImage("hospitalMap", "tiles")
+    console.log(this.tileset)
+    this.layer = this.map.createStaticLayer("Tile Layer 1", this.tileset)
 
     this.player = this.physics.add.sprite(500, 500, "player")
     this.player.setCollideWorldBounds(true)

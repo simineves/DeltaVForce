@@ -1167,7 +1167,7 @@
          "imageheight":1280,
          "imagewidth":480,
          "margin":0,
-         "name":"hospitalfloors",
+         "name":"hospitalMap",
          "spacing":0,
          "tilecount":600,
          "tileheight":32,
