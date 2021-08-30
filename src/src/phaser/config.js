@@ -3,7 +3,7 @@ import Phaser from "phaser"
 class MainScene extends Phaser.Scene {
   preload() {
     this.load.image("tiles", "assets/hospitalTiles.png")
-    this.load.image("hospitalMap", "assets/hospital.json")
+    this.load.tilemapTiledJSON("hospitalMap", "assets/hospital.json")
     this.load.spritesheet("player", "assets/player.png", {
       frameWidth: 16,
       frameHeight: 32
@@ -11,10 +11,22 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
-    const hospitalBackground = this.add.image(0,0, 'background').setOrigin(0,0)
-    hospitalBackground.setScale(2, 0.8)
-    const hospitalMap = this.make.tilemap({key: "hospitalMap"})
-    const hospitalTileset = hospitalMap.addTilesetImage("hospitalTiles", "tiles")
+    
+    // const hospitalMap = this.make.tilemap({key: "hospitalMap"})
+    // const hospitalTileset = this.hospitalMap.addTilesetImage("hospitalTiles", "tiles")
+    // const belowLayer = this.hospitalMap.createStaticLayer("Below", hospitalTileset, 0, 0)
+    // const aboveLayer = this.hospitalMap.createStaticLayer("Above", hospitalTileset, 0, 0)
+    // const hospitalLayer = this.hospitalMap.createStaticLayer("Hospital", hospitalTileset, 0, 0)
+
+    // this.make.tilemap({key: "hospitalMap"})
+    // this.hospitalMap.addTilesetImage("hospitalTiles", "tiles")
+    // this.hospitalMap.createStaticLayer("Below", this.hospitalTileset, 0, 0)
+    // this.hospitalMap.createStaticLayer("Above", this.hospitalTileset, 0, 0)
+    // this.hospitalMap.createStaticLayer("Hospital", this.hospitalTileset, 0, 0)
+
+    this.map = this.add.tilemap("hospitalMap")
+    this.tileset = this.map.addTilesetImage("tiles")
+    this.layer = this.map.createStaticLayer(0, this.tileset, -50, 30)
 
     this.player = this.physics.add.sprite(500, 500, "player")
     this.player.setCollideWorldBounds(true)
