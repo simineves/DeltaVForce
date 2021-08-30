@@ -2,6 +2,8 @@ import Phaser from "phaser"
 
 class MainScene extends Phaser.Scene {
   preload() {
+    this.load.image("tiles", "assets/hospitalTiles.png")
+    this.load.image("hospitalMap", "assets/hospital.json")
     this.load.spritesheet("player", "assets/player.png", {
       frameWidth: 16,
       frameHeight: 32
@@ -9,6 +11,11 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
+    const hospitalBackground = this.add.image(0,0, 'background').setOrigin(0,0)
+    hospitalBackground.setScale(2, 0.8)
+    const hospitalMap = this.make.tilemap({key: "hospitalMap"})
+    const hospitalTileset = hospitalMap.addTilesetImage("hospitalTiles", "tiles")
+
     this.player = this.physics.add.sprite(500, 500, "player")
     this.player.setCollideWorldBounds(true)
 
