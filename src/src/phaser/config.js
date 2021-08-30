@@ -70,7 +70,7 @@ class MainScene extends Phaser.Scene {
 
 export const config = {
   width: "100%",
-  height: "97%",
+  height: "100%",
   type: Phaser.AUTO,
   physics: {
     default: "arcade",
