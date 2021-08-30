@@ -2269,7 +2269,7 @@
          "x":0,
          "y":0
         }],
- "nextlayerid":8,
+ "nextlayerid":9,
  "nextobjectid":223,
  "orientation":"orthogonal",
  "renderorder":"right-down",
@@ -2287,6 +2287,19 @@
         {
          "firstgid":1417,
          "source":"groStoItems.tsx"
+        }, 
+        {
+         "columns":15,
+         "firstgid":2665,
+         "image":"Downloads\/Modern_Interiors\/1_Interiors\/32x32\/Room_Bulder_subfiles_32x32\/Room_Builder_Floors_32x32.png",
+         "imageheight":1280,
+         "imagewidth":480,
+         "margin":0,
+         "name":"hospitalfloors",
+         "spacing":0,
+         "tilecount":600,
+         "tileheight":32,
+         "tilewidth":32
         }],
  "tilewidth":32,
  "type":"map",

@@ -1161,8 +1161,17 @@
  "tileheight":32,
  "tilesets":[
         {
+         "columns":15,
          "firstgid":1,
-         "source":"hospitalfloors.tsx"
+         "image":"Downloads\/Modern_Interiors\/1_Interiors\/32x32\/Room_Bulder_subfiles_32x32\/Room_Builder_Floors_32x32.png",
+         "imageheight":1280,
+         "imagewidth":480,
+         "margin":0,
+         "name":"hospitalfloors",
+         "spacing":0,
+         "tilecount":600,
+         "tileheight":32,
+         "tilewidth":32
         }, 
         {
          "firstgid":601,
