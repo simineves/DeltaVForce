@@ -6,7 +6,7 @@ class MainScene extends Phaser.Scene {
       frameWidth: 32,
       frameHeight: 32
     })
-    this.load.tilemapTiledJSON("hospitalMap", "assets/hospital.json")
+    this.load.tilemapTiledJSON("hospitalMap", "assets/testJSON.json")
     this.load.spritesheet("player", "assets/player.png", {
       frameWidth: 16,
       frameHeight: 32
