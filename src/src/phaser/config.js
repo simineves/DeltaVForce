@@ -5,7 +5,8 @@ class MainScene extends Phaser.Scene {
     this.load.spritesheet("player", "assets/player.png", {
       frameWidth: 16,
       frameHeight: 32
-    })
+    });
+    this.load.image("mask", "assets/mask.png");
   }
 
   create() {
@@ -39,20 +40,36 @@ class MainScene extends Phaser.Scene {
       frameRate: 10,
       repeat: -1
     })
+
+    this.mask = this.physics.add.sprite(500, 500, "mask")
+    this.speed = Phaser.Math.GetSpeed(600, 3)
+    this.mask.setCollideWorldBounds(true)
   }
 
-  update() {
+  update(time, delta) {
     this.cursors = this.input.keyboard.addKeys({
       up: Phaser.Input.Keyboard.KeyCodes.W,
       down: Phaser.Input.Keyboard.KeyCodes.S,
       left: Phaser.Input.Keyboard.KeyCodes.A,
       right: Phaser.Input.Keyboard.KeyCodes.D,
-      space: Phaser.Input.Keyboard.KeyCodes.SPACE
+      space: Phaser.Input.Keyboard.KeyCodes.SPACE,
+      maskOn: Phaser.Input.Keyboard.KeyCodes.ENTER
     })
+
+    // if(this.cursors.maskOn.isDown) {
+    //   this.physics.moveTo(this.mask, 500, 100, 60)
+    //   // this.mask.x += this.speed * delta
+    //   // if (this.mask.x > 864) {
+    //   //   this.mask.x = 64
+    //   // }
+    // }
 
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-160)
       this.player.anims.play("left", true)
+      if (this.cursors.maskOn.isDown) {
+        this.physics.moveTo(this.mask, 500, 100, 180)
+      }
     } else if (this.cursors.right.isDown) {
       this.player.setVelocityX(160)
       this.player.anims.play("right", true)
