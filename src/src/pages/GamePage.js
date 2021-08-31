@@ -14,6 +14,15 @@ const GamePage = () => {
     }
   }, [init])
 
+  useEffect(() => {
+    if (!gameRef){
+      gameRef.current.destroy()
+      handleGameEnd()
+    }
+    handleGameStart() 
+    setGame(Object.assign({}, config))
+  }, [])
+
   const handleGameStart = () => {
     setInit(true)
   }
