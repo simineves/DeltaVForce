@@ -1,5 +1,6 @@
 import Phaser from "phaser"
 
+
 class MainScene extends Phaser.Scene {
   preload() {
     this.load.spritesheet("tiles", "assets/hospitalTiles.png", {
