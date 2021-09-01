@@ -1,12 +1,16 @@
 import Phaser from "phaser"
 
 class MainScene extends Phaser.Scene {
+  state = {
+    thrownMask: false
+  }
+
   preload() {
     this.load.spritesheet("player", "assets/player.png", {
       frameWidth: 16,
       frameHeight: 32
     });
-    this.load.image("mask", "assets/mask.png");
+    // this.load.image("mask", "assets/mask.png");
   }
 
   create() {
